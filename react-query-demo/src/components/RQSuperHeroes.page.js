@@ -1,3 +1,3 @@
 export const RQSuperHeroesPage = () => {
-  return <div>React Query Super Heroes Page</div>
+  return <h2>React Query Super Heroes Page</h2>
 }
