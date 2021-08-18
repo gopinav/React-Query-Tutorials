@@ -15,5 +15,19 @@
       "name": "Wonder Woman",
       "alterEgo": "Princess Diana"
     }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "name": "Chandler Bing"
+    },
+    {
+      "id": 2,
+      "name": "Joey Tribbiani"
+    },
+    {
+      "id": 3,
+      "name": "Rachel Green"
+    }
   ]
 }
