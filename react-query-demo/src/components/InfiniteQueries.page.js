@@ -17,7 +17,7 @@ export const InfiniteQueriesPage = () => {
     isFetching,
     isFetchingNextPage
   } = useInfiniteQuery(['colors'], fetchColors, {
-    getNextPageParam: (lastPage, pages) => {
+    getNextPageParam: (_lastPage, pages) => {
       if (pages.length < 4) {
         return pages.length + 1
       } else {
