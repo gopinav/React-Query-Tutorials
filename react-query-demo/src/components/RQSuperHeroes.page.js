@@ -20,12 +20,13 @@ export const RQSuperHeroesPage = () => {
   const { isLoading, data, isError, error, isFetching, refetch } =
     useSuperHeroesData(onSuccess, onError)
 
-  const { mutate } = useAddSuperHeroData()
+  const { mutate: addHero } = useAddSuperHeroData()
 
   console.log({ isLoading, isFetching })
 
   const handleAddHeroClick = () => {
-    mutate({ name, alterEgo })
+    const hero = { name, alterEgo }
+    addHero(hero)
   }
 
   if (isLoading) {
