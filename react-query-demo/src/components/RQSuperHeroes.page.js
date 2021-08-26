@@ -17,12 +17,12 @@ export const RQSuperHeroesPage = () => {
     console.log({ error })
   }
 
-  const { isLoading, data, isError, error, isFetching, refetch } =
-    useSuperHeroesData(onSuccess, onError)
+  const { isLoading, data, isError, error, refetch } = useSuperHeroesData(
+    onSuccess,
+    onError
+  )
 
   const { mutate: addHero } = useAddSuperHeroData()
-
-  console.log({ isLoading, isFetching })
 
   const handleAddHeroClick = () => {
     const hero = { name, alterEgo }
@@ -57,7 +57,9 @@ export const RQSuperHeroesPage = () => {
       {data?.data.map(hero => {
         return (
           <div key={hero.id}>
-            <Link to={`/rq-super-heroes/${hero.id}`}>{hero.name}</Link>
+            <Link to={`/rq-super-heroes/${hero.id}`}>
+              {hero.id} {hero.name}
+            </Link>
           </div>
         )
       })}
