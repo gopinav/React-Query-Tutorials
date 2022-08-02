@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import './App.css'
@@ -17,7 +17,7 @@ const queryClient = new QueryClient()
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
+      <BrowserRouter>
         <div>
           <nav>
             <ul>
@@ -32,39 +32,21 @@ function App() {
               </li>
             </ul>
           </nav>
-          <Switch>
-            <Route path='/super-heroes'>
-              <SuperHeroesPage />
-            </Route>
-            <Route path='/rq-super-heroes/:heroId'>
-              <RQSuperHeroPage />
-            </Route>
-            <Route path='/rq-super-heroes'>
-              <RQSuperHeroesPage />
-            </Route>
-            <Route path='/rq-parallel'>
-              <ParallelQueriesPage />
-            </Route>
-            <Route path='/rq-dynamic-parallel'>
-              <DynamicParallelPage heroIds={[1, 3]} />
-            </Route>
-            <Route path='/rq-dependent'>
-              <DependentQueriesPage email='vishwas@example.com' />
-            </Route>
-            <Route path='/rq-paginated'>
-              <PaginatedQueriesPage />
-            </Route>
-            <Route path='/rq-infinite'>
-              <InfiniteQueriesPage />
-            </Route>
-            <Route path='/'>
-              <HomePage />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path='/super-heroes' element={< SuperHeroesPage />} />
+            <Route path='/rq-super-heroes/:heroId' element={<RQSuperHeroPage />} />
+            <Route path='/rq-super-heroes' element={<RQSuperHeroesPage />} />
+            <Route path='/rq-parallel' element={<ParallelQueriesPage />} />
+            <Route path='/rq-dynamic-parallel' element={<DynamicParallelPage heroIds={[1, 3]} />} />
+            <Route path='/rq-dependent' element={<DependentQueriesPage email='vishwas@example.com' />} />
+            <Route path='/rq-paginated' element={<PaginatedQueriesPage />} />
+            <Route path='/rq-infinite' element={<InfiniteQueriesPage />} />
+            <Route path='/' element={<HomePage />} />
+          </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
-    </QueryClientProvider>
+    </QueryClientProvider >
   )
 }
 
